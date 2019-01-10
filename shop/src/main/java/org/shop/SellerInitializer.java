@@ -1,12 +1,13 @@
 package org.shop;
 
+import org.shop.api.SellerService;
+import org.shop.data.Seller;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import org.shop.api.SellerService;
-import org.shop.data.Seller;
 
 /**
  * The Seller Initializer util class.
@@ -14,9 +15,11 @@ import org.shop.data.Seller;
 public class SellerInitializer {
 
     /** The seller service. */
+    @Autowired
     private SellerService sellerService;
     
     /** The seller names. */
+    @Autowired
     private Map<Long, String> sellerNames = Collections.emptyMap();
 
     /**

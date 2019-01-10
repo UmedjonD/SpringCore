@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/shop/context-annotation-lab.iml" filepath="$PROJECT_DIR$/shop/context-annotation-lab.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-context-annotation.lab-master.iml" filepath="$PROJECT_DIR$/.idea/spring-context-annotation.lab-master.iml" />
     </modules>
   </component>

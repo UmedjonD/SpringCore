@@ -4,15 +4,17 @@ import org.shop.api.*;
 import org.shop.api.impl.*;
 import org.shop.repository.ItemRepository;
 import org.shop.repository.ProductRepository;
-import org.testng.annotations.Configuration;
-//import org.springframework.context.annotation.Configuration;
+import org.shop.repository.ProposalRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ServiceConfig {
 
     @Bean
-    public ItemService itemService() {
-        return new ItemServiceImpl();
+    public ItemService itemService(ItemRepository repository) {
+        return new ItemServiceImpl(repository);
     }
 
     @Bean
@@ -21,16 +23,18 @@ public class ServiceConfig {
     }
 
     @Bean
-    public ProductService productService() {
-        return new ProductServiceImpl();
+    @Qualifier("productService")
+    public ProductService productService(ProductRepository repository) {
+        return new ProductServiceImpl(repository);
     }
 
     @Bean
-    public ProposalService proposalService( ) {
-        return new ProposalServiceImpl();
+    @Qualifier("proposalService")
+    public ProposalService proposalService(ProposalRepository repository) {
+        return new ProposalServiceImpl(repository);
     }
-
     @Bean
+    @Qualifier("sellerService")
     public SellerService sellerService() {
         return new SellerServiceImpl();
     }
