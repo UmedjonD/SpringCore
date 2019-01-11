@@ -10,8 +10,11 @@ import org.springframework.context.annotation.Configuration;
 public class FactoryConfig {
 
     @Bean
-    public UserRepository userRepositoryFactory(){
+    public UserRepositoryFactory userRepositoryFactory(){
+        return new UserRepositoryFactory();
+    }
+    @Bean
+    public UserRepository userRepository(){
         return new UserRepositoryFactory().createUserRepository();
     }
-
 }

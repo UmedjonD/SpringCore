@@ -13,9 +13,9 @@ import org.springframework.core.env.Environment;
 @PropertySource(value = {"classpath:property"})
 public class RepositoryConfig {
     @Autowired
-
     private Environment environment;
-
+    @Autowired
+    private UserRepositoryFactory userRepositoryFactory;
     @Bean
     public ItemRepository itemRepository() {
         return new ItemMapRepository();
@@ -43,8 +43,6 @@ public class RepositoryConfig {
         return new SellerMapRepository();
     }
 
-    @Autowired
-    private UserRepositoryFactory userRepositoryFactory;
     @Bean
     public UserRepository userRepository() {
         return userRepositoryFactory.createUserRepository();

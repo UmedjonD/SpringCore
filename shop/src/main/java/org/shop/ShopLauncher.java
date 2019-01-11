@@ -1,6 +1,9 @@
 package org.shop;
 
 
+import org.shop.api.ProductService;
+import org.shop.api.ProposalService;
+import org.shop.api.SellerService;
 import org.shop.api.UserService;
 import org.shop.configuration.EverythingConfig;
 import org.springframework.context.ApplicationContext;
@@ -20,9 +23,13 @@ public class ShopLauncher {
         //TODO: implement using Spring Framework ApplicationContext
         ApplicationContext ac = new AnnotationConfigApplicationContext(EverythingConfig.class);
         System.out.println("Пользователи:");
-        UserService userService = ac.getBean(UserService.class);
-        userService.getUsers().forEach(System.out::println);
-//        DataInitializer dataInitializer = ac.getBean(DataInitializer.class);
-//        dataInitializer.initData();
+        System.out.println(ac.getBean(UserService.class).getUsers());
+        System.out.println("Продукты:");
+        System.out.println(ac.getBean(ProductService.class).getProducts());
+        System.out.println("Селлеры:");
+        System.out.println(ac.getBean(SellerService.class).getSellers());
+
+
+
     }
 }
